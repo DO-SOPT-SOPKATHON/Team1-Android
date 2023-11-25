@@ -30,7 +30,7 @@ class MainDialog(
         }
 
         binding.btnMainDialogShowWorry.setOnSingleClickListener {
-            click
+            click()
         }
 
         return binding?.root

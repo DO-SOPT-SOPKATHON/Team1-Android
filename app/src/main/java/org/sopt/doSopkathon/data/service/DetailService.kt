@@ -18,7 +18,6 @@ interface DetailService {
 
     @GET("/api/post/random")
     suspend fun getRandomPost(
-        @Query("random") random: Int,
     ): Response<ResponsePostDto>
 
     @POST("/api/review/{postId}")

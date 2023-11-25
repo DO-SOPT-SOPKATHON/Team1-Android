@@ -31,11 +31,11 @@ class DetailViewModel(
         }
     }
 
-    fun getRandomPost(random: Int) = viewModelScope.launch {
+    fun getRandomPost() = viewModelScope.launch {
 //        //mock ver
 //        val data = repo.getMockPost()
 //        _postViewData.value=data
-        kotlin.runCatching { repo.getRandomPost(random) }.onSuccess {
+        kotlin.runCatching { repo.getRandomPost() }.onSuccess {
             Log.d("success", "${it?.body()!!}")
             _postViewData.value = it?.body()!!
         }.onFailure {

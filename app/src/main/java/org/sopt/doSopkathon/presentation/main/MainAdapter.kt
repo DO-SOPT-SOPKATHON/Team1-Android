@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sopt.doSopkathon.data.dataclass.Category
 import org.sopt.doSopkathon.databinding.ItemMainBinding
 
-class MainAdapter(private val categoryList: List<Category>) :
+class MainAdapter(private val categoryList: List<Category>,private val Click: (Category) -> Unit = { _ -> }) :
     RecyclerView.Adapter<MainViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
         val binding = ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MainViewHolder(binding)
+        return MainViewHolder(binding,Click)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
