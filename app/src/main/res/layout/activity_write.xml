@@ -95,11 +95,11 @@
 
         <TextView
             android:id="@+id/btn_write_submit"
+            style="@style/WriteBtnStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/shape_black_line_3_12_rect"
             android:gravity="center"
             android:paddingVertical="20dp"
             android:text="걱정 수거하기"
