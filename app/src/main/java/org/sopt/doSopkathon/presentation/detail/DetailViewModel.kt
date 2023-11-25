@@ -16,6 +16,9 @@ class DetailViewModel(
 ) {
     val _postViewData :MutableLiveData<ResponsePostDto> = MutableLiveData()
     val postViewData : LiveData<ResponsePostDto> get() = _postViewData
+
+    val _addReviewResult :MutableLiveData<Boolean> = MutableLiveData()
+    val addReviewResult : LiveData<Boolean> get() = _addReviewResult
     fun getOnePost(postId:Int) = viewModelScope.launch {
         kotlin.runCatching { repo.getOnePost(postId) }.onSuccess {
 //            Log.d("success", "${it?.body()!!}")
@@ -38,6 +41,9 @@ class DetailViewModel(
             Log.d("success", "${it?.body()?.code}")
             if (it?.body()?.code==200){
                 Log.d("success","success")
+                _addReviewResult.value=true
+            }else{
+                _addReviewResult.value=false
             }
         }.onFailure {
             Log.d("fail", "$it")

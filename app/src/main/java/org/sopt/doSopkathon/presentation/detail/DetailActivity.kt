@@ -19,20 +19,18 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
         super.onCreate(savedInstanceState)
         initView()
         initAdapter()
-        observePostData()
         spandableTextLayout()
-        binding.ivChat.setOnClickListener {
-            Log.d("Detail", binding.etvDetailSearch.text.toString())
-            viewModel.addReview(binding.etvDetailSearch.text.toString())
-        }
+        addReview()
     }
 
+
     private fun initView() {
-        val postId = intent.getIntExtra("dataPostId", 4044)
-        val random = intent.getIntExtra("random", 4044)
-        Log.d("detail","$postId,$random")
+        val postId = intent.getIntExtra("dataPostId", 404)
+        val random = intent.getIntExtra("random", 404)
         if (postId != 4044) viewModel.getOnePost(postId)
         if (random != 4044) viewModel.getRandomPost(random)
+        observePostData()
+        observeReviewResult(postId)
     }
 
     private fun initAdapter() {
@@ -43,6 +41,12 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
     private fun observePostData() {
         viewModel.postViewData.observe(this) {
             detailAdapter.submitList(it.reviewList)
+        }
+    }
+
+    private fun observeReviewResult(postId: Int) {
+        viewModel.addReviewResult.observe(this) {
+            if (it) viewModel.getOnePost(postId)
         }
     }
 
@@ -60,6 +64,12 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
                     rotation(if (isDetail01Visible) 0f else 180f)
                 }
             }
+        }
+    }
+
+    private fun addReview() {
+        binding.ivChat.setOnClickListener {
+            viewModel.addReview(binding.etvDetailSearch.text.toString())
         }
     }
 
