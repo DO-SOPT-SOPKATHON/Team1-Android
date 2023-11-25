@@ -4,21 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-            <variable
-                name="comment"
-                type="org.sopt.doSopkathon.presentation.detail.MockComment" />
+
+        <variable
+            name="comment"
+            type="org.sopt.doSopkathon.presentation.detail.MockComment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingHorizontal="20dp">
 
-        <TextView
+        <ImageView
+            android:id="@+id/iv_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text =" test"
-            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_comment"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@{comment.text}"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="4dp"
+            android:text="@{comment.text}"
+            android:textAppearance="@style/TextAppearance.Pretendard.Body1"
+            app:layout_constraintBottom_toBottomOf="@id/iv_comment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_comment"
+            app:layout_constraintTop_toTopOf="@id/iv_comment"
+            tools:text=" test" />
+
+        <TextView
+            android:id="@+id/tv_comment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@{comment.date}"
+            android:textAppearance="@style/TextAppearance.Pretendard.Caption"
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text=" test" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gray_06"
+            app:layout_constraintTop_toBottomOf="@id/tv_comment_date"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

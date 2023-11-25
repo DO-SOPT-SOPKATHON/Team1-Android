@@ -9,24 +9,31 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="true">
+        android:animateLayoutChanges="true"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/tv_detail_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:gravity="center"
+            android:text="내 걱정"
+            android:textAppearance="@style/TextAppearance.Pretendard.Headline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:animateLayoutChanges="true"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="@drawable/image_20"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="14dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_title">
 
-            <TextView
-                android:id="@+id/tv_detail_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="내 걱정"
-                android:textSize="40dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_category_title"
@@ -35,7 +42,7 @@
                 android:gravity="center"
                 android:text="학업"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_detail_title" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -51,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_marginTop="4dp"
                 android:text="t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
                 android:textSize="18sp"
                 android:visibility="gone"
@@ -61,6 +69,7 @@
                 android:id="@+id/layoutDetail02"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:gravity="center"
                 android:maxLines="1"
                 android:text="t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
@@ -72,6 +81,7 @@
                 android:id="@+id/tv_write_date1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="2020.04.19"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -81,6 +91,7 @@
                 android:id="@+id/tv_write_date2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:text="2020.04.19"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layoutDetail02" />
@@ -90,23 +101,40 @@
             android:id="@+id/rv_comment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             android:orientation="vertical"
             android:paddingVertical="4dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toTopOf="@+id/etv_detail_search"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_top" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etv_detail_search"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:backgroundTint="@color/white"
-            android:drawablePadding="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:paddingStart="14dp"
             android:hint="댓글을 달아주세요"
+            android:background="@drawable/shape_white_fill_19_rect"
             android:imeOptions="actionDone"
             android:inputType="text"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textAppearance="@style/TextAppearance.Pretendard.Body2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_chat"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_edite"
+            app:layout_constraintTop_toTopOf="@id/etv_detail_search"
+            app:layout_constraintBottom_toBottomOf="@id/etv_detail_search"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
