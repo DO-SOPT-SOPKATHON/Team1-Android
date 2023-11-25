@@ -48,7 +48,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = MainAdapter(categoryList, Click = {
             val intent = Intent(this, ListActivity::class.java).apply {
-                putExtra("category", it.name)
+                putExtra("category", it.id)
             }
             startActivity(intent)
         })

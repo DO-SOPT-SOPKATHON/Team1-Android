@@ -8,6 +8,7 @@ import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.api.ServicePool
 import org.sopt.doSopkathon.data.dto.response.ListResponseDto
 import org.sopt.doSopkathon.databinding.ActivityListBinding
+import org.sopt.doSopkathon.presentation.detail.DetailActivity
 import org.sopt.doSopkathon.util.base.BindingActivity
 import retrofit2.Call
 import retrofit2.Response
@@ -24,8 +25,8 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initAdapter()
-
-        getListInfo()
+        val categoryId = intent.getLongExtra("category",1)
+        getListInfo(categoryId)
     }
 
     private inline fun <reified T : Activity> navigateTo() {
@@ -36,12 +37,17 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
     }
 
     private fun initAdapter() {
-        _adapter = ListAdapter(this)
+        _adapter = ListAdapter(this, Click = {
+            val intent = Intent(this, DetailActivity::class.java).apply {
+                putExtra("dataPostId", it.postId)
+            }
+            startActivity(intent)
+        })
         binding.rvListList.adapter = adapter
     }
 
-    private fun getListInfo() {
-        ServicePool.listService.getListInfo(categoryId.toLong())
+    private fun getListInfo(category:Long) {
+        ServicePool.listService.getListInfo(category)
             .enqueue(object : retrofit2.Callback<List<ListResponseDto>> {
                 override fun onResponse(
                     call: Call<List<ListResponseDto>>,
