@@ -20,7 +20,6 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
         initView()
         initAdapter()
         spandableTextLayout()
-        addReview()
     }
 
 
@@ -31,7 +30,10 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
         if (random != 4044) viewModel.getRandomPost(random)
         observePostData()
         observeReviewResult(postId)
+        sendReview(postId)
     }
+
+
 
     private fun initAdapter() {
         detailAdapter = DetailAdapter()
@@ -72,9 +74,9 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
         }
     }
 
-    private fun addReview() {
+    private fun sendReview(postId: Int) {
         binding.ivChat.setOnClickListener {
-            viewModel.addReview(binding.etvDetailSearch.text.toString())
+            viewModel.addReview(postId, binding.etvDetailSearch.text.toString())
         }
     }
 

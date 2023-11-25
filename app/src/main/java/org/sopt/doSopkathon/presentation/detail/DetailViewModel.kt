@@ -43,15 +43,10 @@ class DetailViewModel(
         }
     }
 
-    fun addReview(review: String) = viewModelScope.launch {
-        kotlin.runCatching { repo.addReview(review) }.onSuccess {
+    fun addReview(postId: Int,review: String) = viewModelScope.launch {
+        _addReviewResult.value = true
+        kotlin.runCatching { repo.addReview(postId,review) }.onSuccess {
             Log.d("success", "${it?.body()?.code}")
-            if (it?.body()?.code == 200) {
-                Log.d("success", "success")
-                _addReviewResult.value = true
-            } else {
-                _addReviewResult.value = false
-            }
         }.onFailure {
             Log.d("fail", "$it")
         }
