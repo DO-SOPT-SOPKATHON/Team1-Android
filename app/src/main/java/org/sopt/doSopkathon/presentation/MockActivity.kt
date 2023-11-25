@@ -1,4 +1,4 @@
-package org.sopt.doSopkathon.presentation.mock
+package org.sopt.doSopkathon.presentation
 
 import android.os.Bundle
 import androidx.activity.viewModels

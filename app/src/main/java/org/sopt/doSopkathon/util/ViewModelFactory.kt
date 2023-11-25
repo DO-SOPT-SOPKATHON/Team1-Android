@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import org.sopt.doSopkathon.api.ServicePool
 import org.sopt.doSopkathon.data.datasource.MockDataSource
 import org.sopt.doSopkathon.data.repository.MockRepository
-import org.sopt.doSopkathon.presentation.mock.MockViewModel
+import org.sopt.doSopkathon.presentation.MockViewModel
 
 class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory {
 

@@ -1,4 +1,4 @@
-package org.sopt.doSopkathon.presentation.mock
+package org.sopt.doSopkathon.presentation
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
