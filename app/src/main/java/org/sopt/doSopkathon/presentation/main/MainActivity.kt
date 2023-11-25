@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.databinding.ActivityMainBinding
+import org.sopt.doSopkathon.presentation.detail.DetailActivity
 import org.sopt.doSopkathon.presentation.list.ListActivity
 import org.sopt.doSopkathon.presentation.write.WriteActivity
 import org.sopt.doSopkathon.util.base.BindingActivity
@@ -29,7 +30,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private fun clickListWorryBtn() {
         binding.btnMainWatchWorry.setOnSingleClickListener {
-            navigateTo<ListActivity>()
+            navigateTo<DetailActivity>()
         }
     }
 
@@ -41,6 +42,8 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private inline fun <reified T : Activity> navigateTo() {
         Intent(this@MainActivity, T::class.java).apply {
+            putExtra("dataPostId",1)
+            putExtra("random",1)
             startActivity(this)
         }
     }
