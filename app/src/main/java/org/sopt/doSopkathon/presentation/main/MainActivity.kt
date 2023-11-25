@@ -37,7 +37,8 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private fun showRandomWorryDialog() {
         val dialog = MainDialog(click = {
             val intent = Intent(this, DetailActivity::class.java).apply {
-                putExtra("random","random")
+                putExtra("random",1)
+
             }
             startActivity(intent)
         })
@@ -70,7 +71,8 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private inline fun <reified T : Activity> navigateTo() {
         Intent(this@MainActivity, T::class.java).apply {
-            putExtra("random","random")
+            putExtra("random",1)
+            putExtra("dataPostId",1)
             startActivity(this)
         }
     }
