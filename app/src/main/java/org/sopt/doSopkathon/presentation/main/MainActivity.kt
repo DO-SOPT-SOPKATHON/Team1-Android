@@ -26,9 +26,15 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
          *   navigateTo<DetailActivity>()
          * **/
 
+        showRandomWorryDialog()
         initRecyclerView()
         clickWriteWorryBtn()
         clickListWorryBtn()
+    }
+
+    private fun showRandomWorryDialog() {
+        val dialog = MainDialog()
+        dialog.show(supportFragmentManager, "MainDialog")
     }
 
     private fun initRecyclerView() {
