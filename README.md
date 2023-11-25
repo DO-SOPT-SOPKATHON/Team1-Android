@@ -20,15 +20,16 @@
 걱정 기록 서비스, Re:motion
 
 # 🫧주요 기능
-- 걱정 기록하기
-- 카테고리에 해당하는 걱정 목록 열기
-- 무작위 걱정 하나 
+1. 걱정 작성하기
+2. 걱정 리뷰하기
+3. 과거 걱정에 대한 리뷰 작성하기
+4. 랜덤 걱정 띄우기
 
 # 🫧팀원 역할 분담
 |<img width=150 src="https://avatars.githubusercontent.com/u/97405341?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/114990782?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/113780698?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/93514333?v=4" />|
 |:----:|:----:|:----:|:----:|
 | [김상호](https://github.com/Marchbreeze) | [손명지](https://github.com/m6z1) | [엄현지](https://github.com/hyunjium) | [이삭](https://github.com/lsakee) |
-|메인페이지 뷰 구현|:----:|:----:|:----:|
+|걱정 작성 화면|메인 화면|걱정 목록 화면|걱정 상세 보기 화면|
 
 
 # 🫧컨벤션 규칙 & 브랜치 전략
