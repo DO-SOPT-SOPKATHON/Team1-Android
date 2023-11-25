@@ -3,7 +3,7 @@ package org.sopt.doSopkathon.presentation.write
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import org.sopt.doSopkathon.data.datasource.Category
+import org.sopt.doSopkathon.data.dataclass.Category
 import org.sopt.doSopkathon.databinding.ItemWriteCategoryBinding
 import org.sopt.doSopkathon.util.extension.ItemDiffCallback
 
