@@ -23,8 +23,8 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         initAdapter()
+
         getListInfo()
     }
 
