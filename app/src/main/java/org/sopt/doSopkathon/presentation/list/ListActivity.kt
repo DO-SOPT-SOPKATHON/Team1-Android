@@ -3,7 +3,6 @@ package org.sopt.doSopkathon.presentation.list
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.api.ServicePool
@@ -15,18 +14,17 @@ import retrofit2.Response
 
 class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list) {
 
+    private var _adapter: ListAdapter? = null
+    private val adapter
+        get() = requireNotNull(_adapter) { getString(R.string.adapter_not_initialized_error_msg) }
+
+    // TODO: 카테고리 설정
+    private val categoryId = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val category = intent.getStringExtra("category")
-        Log.d("List","$category")
-        val ListAdapter = ListAdapter(this)
-        binding.rvListList.adapter = ListAdapter
-        /**  화면 이동 방법*
-         *     binding.tvTest.setOnClickListener {
-         *            navigateTo<DetailActivity>()
-         *   }
-         *   navigateTo<DetailActivity>()
-         * **/
+        initAdapter()
+
         getListInfo()
     }
 
@@ -37,18 +35,13 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
         }
     }
 
-    fun initAdapter(data: List<ListResponseDto>) {
-
-        val ListAdapter = ListAdapter(this)
-        binding.rvListList.adapter = ListAdapter
-        ListAdapter.setListList(data)
+    private fun initAdapter() {
+        _adapter = ListAdapter(this)
+        binding.rvListList.adapter = adapter
     }
 
     private fun getListInfo() {
-        val categoryName = binding.tvListCategoryName.text
-        Log.d("ListActivity", "Sending request to the server with categoryId: $categoryName")
-
-        ServicePool.listService.getListInfo(1)
+        ServicePool.listService.getListInfo(categoryId.toLong())
             .enqueue(object : retrofit2.Callback<List<ListResponseDto>> {
                 override fun onResponse(
                     call: Call<List<ListResponseDto>>,
@@ -56,16 +49,12 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
                 ) {
                     if (response.isSuccessful) {
                         val data = response.body()!!
-                        Log.d("ListActivity", "Received successful response from the server: $data")
-                        initAdapter(data)
-                    }
-                    else {
-                        Log.e("ListActivity", "Server returned an error: ${response.code()}")
+                        adapter.setListList(data)
+                    } else {
+                        Toast.makeText(this@ListActivity, "서버 통신 실패", Toast.LENGTH_SHORT).show()
                     }
                 }
-
                 override fun onFailure(call: Call<List<ListResponseDto>>, t: Throwable) {
-                    Log.e("ListActivity", "Error during API call", t)
                     Toast.makeText(this@ListActivity, "서버 에러 발생", Toast.LENGTH_SHORT).show()
                 }
             })
