@@ -1,5 +1,7 @@
 package org.sopt.doSopkathon.api
 
+import org.sopt.doSopkathon.data.service.MockService
+
 object ServicePool {
-    // val authService = ApiFactory.create<AuthService>()
+     val mockService = ApiFactory.create<MockService>()
 }

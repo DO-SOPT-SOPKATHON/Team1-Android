@@ -6,7 +6,6 @@ import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.sopt.doSopkathon.BuildConfig
 import retrofit2.Retrofit
 
 object ApiFactory {
@@ -20,13 +19,14 @@ object ApiFactory {
         .addInterceptor(getLogOkHttpClient())
         .build()
 
-//    val retrofit: Retrofit by lazy {
-//        Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .client(okHttpClient)
-//            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
-//            .build()
-//    }
-//
-//    inline fun <reified T> create(): T = retrofit.create<T>(T::class.java)
+    val retrofit: Retrofit by lazy {
+        Retrofit.Builder()
+//            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl("https://reqres.in/")
+            .client(okHttpClient)
+            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            .build()
+    }
+
+    inline fun <reified T> create(): T = retrofit.create<T>(T::class.java)
 }
