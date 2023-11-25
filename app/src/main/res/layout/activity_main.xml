@@ -38,7 +38,7 @@
                 android:id="@+id/tv_main_top_worry_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="내 고민을 보러가실래요?"
+                android:text="@string/main_top_worry_title"
                 android:textAppearance="@style/TextAppearance.Pretendard.SubHead2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,8 +64,8 @@
                 android:focusable="true"
                 android:gravity="center"
                 android:paddingVertical="8dp"
-                android:switchTextAppearance="@style/TextAppearance.Pretendard.SubHead2"
-                android:text="보러가기"
+                android:text="@string/main_top_watch_worry"
+                android:textAppearance="@style/TextAppearance.Pretendard.SubHead2"
                 android:textColor="@color/gray_12"
                 app:layout_constraintTop_toBottomOf="@id/iv_main_top_worry" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="걱정수거함"
+            android:text="@string/main_worry_collection_title"
             android:textAppearance="@style/TextAppearance.Pretendard.SubHead3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_main_random_worry" />
