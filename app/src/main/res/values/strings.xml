@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Do-Sopkathon</string>
-
-    <!-- 메인 화면 뷰 -->
+    <string name="adapter_not_initialized_error_msg">Adapter is not initialized</string>
+      <!-- 메인 화면 뷰 -->
     <string name="main_top_worry_title">그 날, 당신을 걱정시킨 것은 무엇이었을까요?</string>
     <string name="main_top_watch_worry">보러가기</string>
     <string name="main_worry_collection_title">걱정수거함</string>

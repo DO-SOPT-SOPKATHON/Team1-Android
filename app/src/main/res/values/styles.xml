@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="WriteBtnStyle">
+        <item name="android:background">@drawable/selector_btn_write_background</item>
+        <item name="android:textColor">@drawable/selector_btn_write_text</item>
+    </style>
+
+    <style name="WriteCategoryBtnStyle">
+        <item name="android:background">@drawable/selector_btn_category_background</item>
+        <item name="android:textColor">@drawable/selector_btn_write_text</item>
+    </style>
+
+</resources>

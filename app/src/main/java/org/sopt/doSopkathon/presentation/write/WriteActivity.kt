@@ -3,11 +3,18 @@ package org.sopt.doSopkathon.presentation.write
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import org.sopt.doSopkathon.R
+import org.sopt.doSopkathon.data.mock.categoryList
 import org.sopt.doSopkathon.databinding.ActivityWriteBinding
 import org.sopt.doSopkathon.util.base.BindingActivity
+import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
 
 class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_write) {
+
+    private var _adapter: WriteAdapter? = null
+    private val adapter
+        get() = requireNotNull(_adapter) { getString(R.string.adapter_not_initialized_error_msg) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +26,24 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
          *   navigateTo<WriteActivity>()
          *   navigateTo<DetailActivity>()
          * **/
+        initAdapter()
+        initSubmitBtnListener()
+    }
+
+    private fun initAdapter() {
+        _adapter = WriteAdapter { category, position ->
+            // category ID 저장
+            category.isSelected = !category.isSelected
+            adapter.notifyItemChanged(position)
+        }
+        binding.rvWriteCategory.adapter = adapter
+        adapter.submitList(categoryList)
+    }
+
+    private fun initSubmitBtnListener() {
+        binding.btnWriteSubmit.setOnSingleClickListener {
+            binding.btnWriteSubmit.isSelected = !binding.btnWriteSubmit.isSelected
+        }
     }
 
     private inline fun <reified T : Activity> navigateTo() {
