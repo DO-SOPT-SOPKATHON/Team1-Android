@@ -51,14 +51,18 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
 
     private fun initSubmitBtnListener() {
         binding.btnWriteSubmit.setOnSingleClickListener {
-            binding.btnWriteSubmit.isSelected = !binding.btnWriteSubmit.isSelected
-            viewModel.postWriteBodyToServer(
-                WriteRequestDto(
-                    viewModel.categoryId,
-                    binding.etWriteTitle.text.toString(),
-                    binding.etWriteBody.text.toString()
+            if (viewModel.categoryId == 0) {
+                toast("카테고리를 선택해주세요")
+            } else {
+                binding.btnWriteSubmit.isSelected = !binding.btnWriteSubmit.isSelected
+                viewModel.postWriteBodyToServer(
+                    WriteRequestDto(
+                        viewModel.categoryId,
+                        binding.etWriteTitle.text.toString(),
+                        binding.etWriteBody.text.toString()
+                    )
                 )
-            )
+            }
         }
     }
 
