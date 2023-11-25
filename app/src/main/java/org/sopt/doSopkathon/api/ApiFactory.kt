@@ -10,7 +10,7 @@ import org.sopt.doSopkathon.BuildConfig
 import retrofit2.Retrofit
 
 object ApiFactory {
-     private const val BASE_URL = BuildConfig.BASE_URL
+    private const val BASE_URL = BuildConfig.BASE_URL
 
     private fun getLogOkHttpClient(): Interceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY

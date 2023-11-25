@@ -9,6 +9,7 @@
     <string name="main_top_worry_title">그 날, 당신을 걱정시킨 것은 무엇이었을까요?</string>
     <string name="main_top_watch_worry">보러가기</string>
     <string name="main_worry_collection_title">걱정수거함</string>
+    <string name="server_error">서버 통신에 실패했습니다</string>
     <string name="write_dialog_title">당신의 걱정을 수거했어요 : )</string>
     <string name="write_dialog_description">어느 날, 내가 한 걱정을 떠올려 볼까요?</string>
     <string name="write_dialog_home">홈으로 가기</string>
