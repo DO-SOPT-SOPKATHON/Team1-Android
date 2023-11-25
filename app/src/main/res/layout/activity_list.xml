@@ -46,6 +46,7 @@
             app:layout_constraintTop_toTopOf="@id/iv_list_category_box" />
 
         <TextView
+            android:id="@+id/tv_list_category_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="43dp"
