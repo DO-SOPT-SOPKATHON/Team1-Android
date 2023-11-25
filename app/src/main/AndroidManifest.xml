@@ -31,7 +31,8 @@
         <activity
             android:name=".presentation.detail.DetailActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
 
         <activity
             android:name=".presentation.list.ListActivity"
@@ -41,7 +42,8 @@
         <activity
             android:name=".presentation.write.WriteActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" />
 
         <activity
             android:name=".presentation.MockActivity"

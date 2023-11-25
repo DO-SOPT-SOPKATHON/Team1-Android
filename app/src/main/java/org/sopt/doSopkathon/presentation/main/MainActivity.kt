@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.databinding.ActivityMainBinding
+import org.sopt.doSopkathon.presentation.write.WriteActivity
 import org.sopt.doSopkathon.util.base.BindingActivity
+import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
 
 class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main) {
 
@@ -19,6 +21,14 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
          *   navigateTo<WriteActivity>()
          *   navigateTo<DetailActivity>()
          * **/
+
+        clickWriteWorryBtn()
+    }
+
+    private fun clickWriteWorryBtn() {
+        binding.fabMainWriteWorry.setOnSingleClickListener {
+            navigateTo<WriteActivity>()
+        }
     }
 
     private inline fun <reified T : Activity> navigateTo() {
