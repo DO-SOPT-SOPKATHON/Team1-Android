@@ -98,4 +98,4 @@
 <img width=500 src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/114990782/e5f31ebb-e364-4084-a5f4-3f87d22e6dab">
 
 # 🫧After 안붕이 사진
-![KakaoTalk_20231126_081549643](https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/113780698/44b6a425-5310-4ca9-988f-a37a68f054c0)
+<img width=500 src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/113780698/44b6a425-5310-4ca9-988f-a37a68f054c0">
