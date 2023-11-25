@@ -9,6 +9,9 @@ import org.sopt.doSopkathon.data.mock.categoryList
 import org.sopt.doSopkathon.databinding.ActivityWriteBinding
 import org.sopt.doSopkathon.util.base.BindingActivity
 import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_write) {
 
@@ -28,6 +31,7 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
          * **/
         initAdapter()
         initSubmitBtnListener()
+        setCurrentDate()
     }
 
     private fun initAdapter() {
@@ -44,6 +48,11 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
         binding.btnWriteSubmit.setOnSingleClickListener {
             binding.btnWriteSubmit.isSelected = !binding.btnWriteSubmit.isSelected
         }
+    }
+
+    private fun setCurrentDate() {
+        val dateFormat = SimpleDateFormat("yyyy.MM.dd", Locale.getDefault())
+        binding.tvWriteDate.text = dateFormat.format(Calendar.getInstance().time)
     }
 
     private inline fun <reified T : Activity> navigateTo() {

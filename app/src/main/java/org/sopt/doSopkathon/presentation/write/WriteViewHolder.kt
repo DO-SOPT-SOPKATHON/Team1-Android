@@ -5,7 +5,7 @@ import org.sopt.doSopkathon.data.datasource.Category
 import org.sopt.doSopkathon.databinding.ItemWriteCategoryBinding
 import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
 
-class SearchViewHolder(
+class WriteViewHolder(
     private val binding: ItemWriteCategoryBinding,
     private val itemClick: (Category, Int) -> Unit,
 ) :
