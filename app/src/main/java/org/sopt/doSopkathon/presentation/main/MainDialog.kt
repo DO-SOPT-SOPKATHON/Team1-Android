@@ -1,15 +1,18 @@
 package org.sopt.doSopkathon.presentation.main
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.fragment.app.DialogFragment
 import org.sopt.doSopkathon.databinding.DialogMainBinding
 import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
 
 class MainDialog(
-    private val click: () -> Unit = { -> }
+    private val click: () -> Unit = { -> },
 ) : DialogFragment() {
 
     private var _binding: DialogMainBinding? = null
@@ -24,6 +27,8 @@ class MainDialog(
         _binding = DialogMainBinding.inflate(inflater, container, false)
 
         // 다이얼로그 뜰 때 배경색 dialog?.window?.setBackgroundDrawableResource(배경색)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
 
         binding.ivMainDialogClose.setOnSingleClickListener {
             dismiss()
