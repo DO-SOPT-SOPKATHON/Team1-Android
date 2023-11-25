@@ -1,6 +1,6 @@
 package org.sopt.doSopkathon.data.mock
 
-import org.sopt.doSopkathon.data.datasource.Category
+import org.sopt.doSopkathon.data.dataclass.Category
 
 val categoryList: MutableList<Category> = mutableListOf(
     Category(1, "학업", false),

@@ -49,9 +49,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="title"
+                android:textAppearance="@style/TextAppearance.Pretendard.SubHead2"
                 android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_category_title" />
+
+            <ImageView
+                android:id="@+id/iv_animate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/expand_right"
+                app:layout_constraintBottom_toBottomOf="@id/tv_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_title" />
 
             <TextView
                 android:id="@+id/layoutDetail01"
@@ -116,12 +126,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="8dp"
-            android:paddingStart="14dp"
-            android:hint="댓글을 달아주세요"
             android:background="@drawable/shape_white_fill_19_rect"
+            android:hint="댓글을 달아주세요"
             android:imeOptions="actionDone"
             android:inputType="text"
             android:minHeight="48dp"
+            android:paddingStart="14dp"
             android:textAppearance="@style/TextAppearance.Pretendard.Body2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/iv_chat"
@@ -132,9 +142,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/selector_edite"
-            app:layout_constraintTop_toTopOf="@id/etv_detail_search"
             app:layout_constraintBottom_toBottomOf="@id/etv_detail_search"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etv_detail_search" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
