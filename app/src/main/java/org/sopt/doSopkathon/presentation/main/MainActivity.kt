@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.databinding.ActivityMainBinding
+import org.sopt.doSopkathon.presentation.list.ListActivity
 import org.sopt.doSopkathon.presentation.write.WriteActivity
 import org.sopt.doSopkathon.util.base.BindingActivity
 import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
@@ -23,6 +24,13 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
          * **/
 
         clickWriteWorryBtn()
+        clickListWorryBtn()
+    }
+
+    private fun clickListWorryBtn() {
+        binding.btnMainWatchWorry.setOnSingleClickListener {
+            navigateTo<ListActivity>()
+        }
     }
 
     private fun clickWriteWorryBtn() {
@@ -33,7 +41,6 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private inline fun <reified T : Activity> navigateTo() {
         Intent(this@MainActivity, T::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(this)
         }
     }
