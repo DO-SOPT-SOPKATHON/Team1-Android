@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,6 +10,52 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_list_category_box"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:layout_marginTop="10dp"
+            android:adjustViewBounds="true"
+            android:paddingBottom="10dp"
+            android:src="@drawable/img_list_top_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="97dp"
+            android:src="@drawable/img_recycler_logo"
+            app:layout_constraintEnd_toEndOf="@id/iv_list_category_box"
+            app:layout_constraintTop_toTopOf="@id/iv_list_category_box" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginBottom="8dp"
+            android:maxLength="5"
+            android:text="@string/list_category_name"
+            android:textAppearance="@style/TextAppearance.Pretendard.SubHead3"
+            app:layout_constraintBottom_toBottomOf="@id/iv_list_category_box"
+            app:layout_constraintStart_toStartOf="@id/iv_list_category_box"
+            app:layout_constraintTop_toTopOf="@id/iv_list_category_box" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_list_category_box"
+            tools:listitem="@layout/item_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Do-Sopkathon</string>
+    <string name="list_title">오늘의 나의 걱정거리</string>
+    <string name="list_content">오늘의 나의 걱정거리오늘의 나의 걱정거리오늘의 나의 걱정거리오늘의 나의걱정거리나의걱정거리나의걱정거</string>
+    <string name="list_date">2023.12.26</string>
+    <string name="list_category_name">학업</string>
     <string name="adapter_not_initialized_error_msg">Adapter is not initialized</string>
       <!-- 메인 화면 뷰 -->
     <string name="main_top_worry_title">그 날, 당신을 걱정시킨 것은 무엇이었을까요?</string>
