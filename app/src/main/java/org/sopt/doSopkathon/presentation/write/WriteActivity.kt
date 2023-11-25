@@ -42,6 +42,7 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
         _adapter = WriteAdapter { category, position ->
             // category ID 저장
             category.isSelected = !category.isSelected
+            viewModel.categoryId = position + 1
             adapter.notifyItemChanged(position)
         }
         binding.rvWriteCategory.adapter = adapter
@@ -53,7 +54,7 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
             binding.btnWriteSubmit.isSelected = !binding.btnWriteSubmit.isSelected
             viewModel.postWriteBodyToServer(
                 WriteRequestDto(
-                    1,
+                    viewModel.categoryId,
                     binding.etWriteTitle.text.toString(),
                     binding.etWriteBody.text.toString()
                 )
@@ -65,11 +66,12 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
         viewModel.postWriteBodyState.flowWithLifecycle(lifecycle).onEach { state ->
             when (state) {
                 is UiState.Success -> {
-                    // 다이얼로그 전환
+                    // TODO: 다이얼로그 전환
                 }
 
                 is UiState.Failure -> {
                     toast(getString(R.string.server_error))
+                    binding.btnWriteSubmit.isSelected = !binding.btnWriteSubmit.isSelected
                 }
 
                 is UiState.Loading -> return@onEach

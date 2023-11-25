@@ -28,15 +28,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_main_dialog_close" />
 
-    <ImageView
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/iv_main_dialog_img"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:src="@drawable/ic_main_dialog_trash"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_main_dialog_title" />
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="@id/iv_main_dialog_text"
+        app:layout_constraintStart_toStartOf="@id/iv_main_dialog_text"
+        app:layout_constraintTop_toBottomOf="@id/tv_main_dialog_title"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/lottie_dialog_1" />
 
     <ImageView
         android:id="@+id/iv_main_dialog_text"

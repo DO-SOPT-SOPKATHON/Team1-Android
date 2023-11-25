@@ -17,6 +17,8 @@ class WriteViewModel(
     private val _postWriteBodyState = MutableStateFlow<UiState<WriteResponseDto?>>(UiState.Empty)
     val postWriteBodyState: StateFlow<UiState<WriteResponseDto?>> = _postWriteBodyState
 
+    var categoryId = 0
+
     fun postWriteBodyToServer(requestDto: WriteRequestDto) {
         viewModelScope.launch {
             _postWriteBodyState.value = UiState.Loading
