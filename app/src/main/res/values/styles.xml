@@ -5,5 +5,10 @@
         <item name="android:textColor">@drawable/selector_btn_write_text</item>
     </style>
 
+    <style name="WriteCategoryBtnStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/selector_btn_category_background</item>
+        <item name="android:textColor">@drawable/selector_btn_write_text</item>
+    </style>
+
 
 </resources>
