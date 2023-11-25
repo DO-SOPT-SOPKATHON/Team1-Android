@@ -7,7 +7,7 @@
 
         <variable
             name="comment"
-            type="org.sopt.doSopkathon.presentation.detail.MockComment" />
+            type="org.sopt.doSopkathon.data.dto.ResponsePostDto.Review" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +30,7 @@
             android:layout_height="0dp"
             android:layout_marginStart="6dp"
             android:layout_marginBottom="4dp"
-            android:text="@{comment.text}"
+            android:text="@{comment.review}"
             android:textAppearance="@style/TextAppearance.Pretendard.Body1"
             app:layout_constraintBottom_toBottomOf="@id/iv_comment"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:text="@{comment.date}"
+            android:text="@{comment.reviewDate}"
             android:textAppearance="@style/TextAppearance.Pretendard.Caption"
             app:layout_constraintTop_toBottomOf="@id/tv_content"
             app:layout_constraintEnd_toEndOf="parent"

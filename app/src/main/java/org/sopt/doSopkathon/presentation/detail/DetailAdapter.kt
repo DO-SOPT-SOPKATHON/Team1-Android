@@ -3,11 +3,12 @@ package org.sopt.doSopkathon.presentation.detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
+import org.sopt.doSopkathon.data.dto.ResponsePostDto
 import org.sopt.doSopkathon.databinding.ItemCommentBinding
 import org.sopt.doSopkathon.util.extension.ItemDiffCallback
 
 class DetailAdapter(
-) : ListAdapter<MockComment, DetailViewHolder>(
+) : ListAdapter<ResponsePostDto.Review, DetailViewHolder>(
     HighLightDiffCalback
 ) {
 
@@ -23,8 +24,8 @@ class DetailAdapter(
 
     companion object {
         private val HighLightDiffCalback =
-            ItemDiffCallback<MockComment>(
-                onItemsTheSame = { old, new -> old.img == new.img },
+            ItemDiffCallback<ResponsePostDto.Review>(
+                onItemsTheSame = { old, new -> old.review == new.review },
                 onContentsTheSame = { old, new -> old == new }
             )
     }
