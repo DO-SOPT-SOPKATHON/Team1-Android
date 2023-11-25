@@ -13,7 +13,7 @@
         android:layout_marginTop="4dp"
         android:paddingVertical="40dp"
         android:paddingStart="39dp"
-        android:textAppearance="@style/TextAppearance.Pretendard.SubHead2"
+        android:textAppearance="@style/TextAppearance.Pretendard.SubHead3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
