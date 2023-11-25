@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Do-Sopkathon</string>
+
+    <string name="adapter_not_initialized_error_msg">Adapter is not initialized</string>
 </resources>
