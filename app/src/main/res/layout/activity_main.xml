@@ -17,18 +17,28 @@
             android:id="@+id/iv_main_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/ic_main_logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_main_logo_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_main_logo_text"
+            app:layout_constraintBottom_toBottomOf="@id/iv_main_logo"
+            app:layout_constraintStart_toEndOf="@id/iv_main_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_main_logo" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_main_random_worry"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/shape_color_fill_12_rect"
-            android:backgroundTint="#338888"
+            android:layout_marginTop="11dp"
+            android:background="@drawable/shape_black_fill_12_rect"
             android:paddingHorizontal="8dp"
-            android:paddingVertical="12dp"
+            android:paddingVertical="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_main_logo">
@@ -48,9 +58,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_main_trash"
+                app:layout_constraintEnd_toStartOf="@+id/iv_main_top_text"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_main_top_worry_title" />
+
+            <ImageView
+                android:id="@+id/iv_main_top_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="11dp"
+                android:src="@drawable/ic_main_top_text"
+                app:layout_constraintBottom_toBottomOf="@id/iv_main_top_worry"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_main_top_worry"
+                app:layout_constraintTop_toTopOf="@id/iv_main_top_worry" />
 
             <TextView
                 android:id="@+id/btn_main_watch_worry"
@@ -58,14 +81,14 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/shape_color_fill_8_rect"
-                android:backgroundTint="#838494"
+                android:backgroundTint="@color/black"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:paddingVertical="8dp"
                 android:text="@string/main_top_watch_worry"
                 android:textAppearance="@style/TextAppearance.Pretendard.SubHead2"
-                android:textColor="@color/gray_12"
+                android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/iv_main_top_worry" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -89,11 +112,14 @@
             app:layout_constraintTop_toBottomOf="@id/tv_main_worry_collection_box_title"
             tools:listitem="@layout/item_main" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <ImageView
             android:id="@+id/fab_main_write_worry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_main_fab"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
