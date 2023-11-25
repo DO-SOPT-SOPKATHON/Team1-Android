@@ -1,9 +1,7 @@
 package org.sopt.doSopkathon.data.service
 
-import org.sopt.doSopkathon.data.dto.request.ListRequestDto
 import org.sopt.doSopkathon.data.dto.response.ListResponseDto
 import retrofit2.Call
-import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Path
 

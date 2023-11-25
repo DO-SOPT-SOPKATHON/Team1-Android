@@ -1,7 +1,5 @@
 package org.sopt.doSopkathon.data.mock
 
-import org.sopt.doSopkathon.data.dataclass.List_DataClass
-
 //val mockListList = listOf<List_DataClass>(
 //    List_DataClass(
 //        title = "안녕하세요",
