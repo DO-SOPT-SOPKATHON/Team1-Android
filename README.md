@@ -25,6 +25,13 @@
 3. 과거 걱정에 대한 리뷰 작성하기
 4. 랜덤 걱정 띄우기
 
+# 🫧시연 영상
+
+
+https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/114990782/797bc25a-b3da-4bd4-931e-9d4de4041e39
+
+
+
 # 🫧팀원 역할 분담
 |<img width=150 src="https://avatars.githubusercontent.com/u/97405341?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/114990782?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/113780698?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/93514333?v=4" />|
 |:----:|:----:|:----:|:----:|
