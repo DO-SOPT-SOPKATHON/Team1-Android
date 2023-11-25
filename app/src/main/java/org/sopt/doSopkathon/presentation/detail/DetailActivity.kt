@@ -26,7 +26,14 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
     private fun initView() {
         val postId = intent.getIntExtra("dataPostId", 404)
         val random = intent.getStringExtra("random")
-        if (postId != 4044) viewModel.getOnePost(postId)
+        val category = intent.getLongExtra("category",1)
+        when(category.toInt()){
+            1->{binding.tvCategoryTitle.text = "학업"}
+            2->{binding.tvCategoryTitle.text = "연애"}
+            3->{binding.tvCategoryTitle.text = "프로젝트"}
+            else->{binding.tvCategoryTitle.text = "취업"}
+        }
+        if (postId != 404) viewModel.getOnePost(postId)
         if (random != null) viewModel.getRandomPost()
         observePostData()
         observeReviewResult(postId)
@@ -42,9 +49,9 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
 
     private fun observePostData() {
         viewModel.postViewData.observe(this) {
-            binding.tvTitle.text=it.title
-            binding.tvWriteDate1.text=it.createdAt
-            binding.tvWriteDate2.text=it.createdAt
+            binding.tvTitle.text=it.title ?:"남자친구랑 헤어져서 슬품"
+            binding.tvWriteDate1.text=it.createdAt ?:"2021:12:25"
+            binding.tvWriteDate2.text=it.createdAt ?:"2021:12:25"
             binding.layoutDetail01.text=it.content
             binding.layoutDetail02.text=it.content
             detailAdapter.submitList(it.reviewList)

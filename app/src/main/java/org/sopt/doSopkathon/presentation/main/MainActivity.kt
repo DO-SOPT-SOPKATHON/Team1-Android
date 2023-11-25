@@ -3,6 +3,7 @@ package org.sopt.doSopkathon.presentation.main
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.doSopkathon.R
@@ -36,7 +37,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     private fun showRandomWorryDialog() {
         val dialog = MainDialog(click = {
             val intent = Intent(this, DetailActivity::class.java).apply {
-                putExtra("random", 1)
+                putExtra("random","random")
             }
             startActivity(intent)
         })
@@ -48,7 +49,8 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = MainAdapter(categoryList, Click = {
             val intent = Intent(this, ListActivity::class.java).apply {
-                putExtra("category", it.id)
+                putExtra("category", it.id.toLong())
+                Log.d("category","${it.id}")
             }
             startActivity(intent)
         })
