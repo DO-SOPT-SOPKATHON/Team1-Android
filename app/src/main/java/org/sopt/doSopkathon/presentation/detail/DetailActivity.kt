@@ -25,9 +25,9 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
 
     private fun initView() {
         val postId = intent.getIntExtra("dataPostId", 404)
-        val random = intent.getIntExtra("random", 404)
+        val random = intent.getStringExtra("random")
         if (postId != 4044) viewModel.getOnePost(postId)
-        if (random != 4044) viewModel.getRandomPost(random)
+        if (random != null) viewModel.getRandomPost()
         observePostData()
         observeReviewResult(postId)
         sendReview(postId)

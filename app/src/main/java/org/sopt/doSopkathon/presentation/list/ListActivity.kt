@@ -17,6 +17,8 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val category = intent.getStringExtra("category")
+        Log.d("List","$category")
         val ListAdapter = ListAdapter(this)
         binding.rvListList.adapter = ListAdapter
         /**  화면 이동 방법*

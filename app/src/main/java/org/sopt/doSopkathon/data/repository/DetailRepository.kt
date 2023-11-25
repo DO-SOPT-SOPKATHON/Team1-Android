@@ -12,8 +12,8 @@ class DetailRepository(
     suspend fun getOnePost(postId: Int): Response<ResponsePostDto> =
         detailDataSource.getOnePost(postId)
 
-    suspend fun getRandomPost(random: Int): Response<ResponsePostDto> =
-        detailDataSource.getRandomPost(random)
+    suspend fun getRandomPost(): Response<ResponsePostDto> =
+        detailDataSource.getRandomPost()
 
     suspend fun addReview(postId: Int,contentRequestDto: String): Response<ResponsePostMessageDto> =
         detailDataSource.postAddReview(postId,contentRequestDto)

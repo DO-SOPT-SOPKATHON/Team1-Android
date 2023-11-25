@@ -34,14 +34,24 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     }
 
     private fun showRandomWorryDialog() {
-        val dialog = MainDialog()
+        val dialog = MainDialog(click = {
+            val intent = Intent(this, DetailActivity::class.java).apply {
+                putExtra("random", 1)
+            }
+            startActivity(intent)
+        })
         dialog.show(supportFragmentManager, "MainDialog")
     }
 
     private fun initRecyclerView() {
         val recyclerView: RecyclerView = binding.rvMainWorryCollectionBox
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = MainAdapter(categoryList)
+        recyclerView.adapter = MainAdapter(categoryList, Click = {
+            val intent = Intent(this, ListActivity::class.java).apply {
+                putExtra("category", it.name)
+            }
+            startActivity(intent)
+        })
     }
 
     private fun clickListWorryBtn() {
@@ -58,8 +68,7 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private inline fun <reified T : Activity> navigateTo() {
         Intent(this@MainActivity, T::class.java).apply {
-            putExtra("dataPostId",1)
-            putExtra("random",1)
+            putExtra("random","random")
             startActivity(this)
         }
     }
