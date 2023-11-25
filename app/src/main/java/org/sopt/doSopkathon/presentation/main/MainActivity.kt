@@ -3,7 +3,10 @@ package org.sopt.doSopkathon.presentation.main
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import org.sopt.doSopkathon.R
+import org.sopt.doSopkathon.data.mock.categoryList
 import org.sopt.doSopkathon.databinding.ActivityMainBinding
 import org.sopt.doSopkathon.presentation.detail.DetailActivity
 import org.sopt.doSopkathon.presentation.list.ListActivity
@@ -24,8 +27,21 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
          *   navigateTo<DetailActivity>()
          * **/
 
+        showRandomWorryDialog()
+        initRecyclerView()
         clickWriteWorryBtn()
         clickListWorryBtn()
+    }
+
+    private fun showRandomWorryDialog() {
+        val dialog = MainDialog()
+        dialog.show(supportFragmentManager, "MainDialog")
+    }
+
+    private fun initRecyclerView() {
+        val recyclerView: RecyclerView = binding.rvMainWorryCollectionBox
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = MainAdapter(categoryList)
     }
 
     private fun clickListWorryBtn() {

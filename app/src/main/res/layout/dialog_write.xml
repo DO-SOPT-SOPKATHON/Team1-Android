@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_white_fill_12_rect"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_write_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="34dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/write_dialog_title"
+        android:textAppearance="@style/TextAppearance.Pretendard.SubHead3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_write_dialog_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/ic_write_dialog_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_write_dialog_title" />
+
+    <TextView
+        android:id="@+id/tv_write_dialog_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/pretendard_bold"
+        android:lineHeight="18dp"
+        android:text="@string/write_dialog_description"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_write_dialog_img" />
+
+    <TextView
+        android:id="@+id/btn_write_dialog_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/shape_black_fill_4_rect"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/pretendard_bold"
+        android:gravity="center"
+        android:lineHeight="20dp"
+        android:paddingVertical="4dp"
+        android:text="@string/write_dialog_home"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@id/btn_write_dialog_worry"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_write_dialog_text" />
+
+    <TextView
+        android:id="@+id/btn_write_dialog_worry"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/shape_fill_4_rect"
+        android:backgroundTint="@color/black"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/pretendard_bold"
+        android:gravity="center"
+        android:lineHeight="20dp"
+        android:paddingVertical="4dp"
+        android:text="@string/write_dialog_worry"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_write_dialog_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_write_dialog_home"
+        app:layout_constraintTop_toTopOf="@id/btn_write_dialog_home" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,6 @@ package org.sopt.doSopkathon.presentation.write
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.data.mock.categoryList
 import org.sopt.doSopkathon.databinding.ActivityWriteBinding
