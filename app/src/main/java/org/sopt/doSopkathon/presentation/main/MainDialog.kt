@@ -8,7 +8,9 @@ import androidx.fragment.app.DialogFragment
 import org.sopt.doSopkathon.databinding.DialogMainBinding
 import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
 
-class MainDialog : DialogFragment() {
+class MainDialog(
+    private val click: () -> Unit = { -> }
+) : DialogFragment() {
 
     private var _binding: DialogMainBinding? = null
     private val binding: DialogMainBinding
@@ -28,6 +30,7 @@ class MainDialog : DialogFragment() {
         }
 
         binding.btnMainDialogShowWorry.setOnSingleClickListener {
+            click
         }
 
         return binding?.root
