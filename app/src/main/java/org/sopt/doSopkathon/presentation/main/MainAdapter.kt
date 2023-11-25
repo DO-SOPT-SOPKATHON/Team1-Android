@@ -3,7 +3,7 @@ package org.sopt.doSopkathon.presentation.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import org.sopt.doSopkathon.data.datasource.Category
+import org.sopt.doSopkathon.data.dataclass.Category
 import org.sopt.doSopkathon.databinding.ItemMainBinding
 
 class MainAdapter(private val categoryList: List<Category>) :

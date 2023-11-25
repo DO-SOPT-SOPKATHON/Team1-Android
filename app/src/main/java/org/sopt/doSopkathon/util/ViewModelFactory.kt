@@ -25,6 +25,7 @@ class ViewModelFactory(private val context: Context) : ViewModelProvider.Factory
             modelClass.isAssignableFrom(WriteViewModel::class.java) -> {
                 val repository = WriteRepository(WriteDataSource(ServicePool.writeService))
                 WriteViewModel(repository) as T
+            }
             modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
                 val repository = DetailRepository(DetailDataSource(ServicePool.detailService))
                 DetailViewModel(repository) as T
