@@ -40,6 +40,11 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
 
     private fun observePostData() {
         viewModel.postViewData.observe(this) {
+            binding.tvTitle.text=it.title
+            binding.tvWriteDate1.text=it.createdAt
+            binding.tvWriteDate2.text=it.createdAt
+            binding.layoutDetail01.text=it.content
+            binding.layoutDetail02.text=it.content
             detailAdapter.submitList(it.reviewList)
         }
     }
