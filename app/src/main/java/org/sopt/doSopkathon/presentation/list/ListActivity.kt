@@ -14,6 +14,7 @@ import org.sopt.doSopkathon.util.base.BaseResponse
 import org.sopt.doSopkathon.util.base.BindingActivity
 import retrofit2.Call
 import retrofit2.Response
+import java.time.LocalDate
 
 class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list) {
 
@@ -30,6 +31,7 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
         when (categoryId.toInt()) {
             1 -> {
                 binding.tvListCategoryName.text = "학업"
+
             }
 
             2 -> {
@@ -42,11 +44,11 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
 
             else -> {
                 binding.tvListCategoryName.text = "취업"
+
             }
         }
         getListInfo(categoryId)
-//        val mockData = listOf(ListResponseDto(1,"남자친구랑 싸웠다 ㅠ 넘슬포","남자친구랑 말다툼을 했다 탕후루 먹고 싶학", LocalDate.now(),1,))
-//        adapter.setListList(mockData)
+
     }
 
     private inline fun <reified T : Activity> navigateTo() {
@@ -77,7 +79,7 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
                 ) {
 
                     Log.d("test", "$t")
-                    Toast.makeText(this@ListActivity, "서버 에러 발생", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@ListActivity, "서버 에러 발생", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onResponse(
