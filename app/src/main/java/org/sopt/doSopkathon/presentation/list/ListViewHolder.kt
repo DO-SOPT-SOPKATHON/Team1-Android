@@ -13,7 +13,7 @@ class ListViewHolder(
     fun onBind(listData: ListResponseDto) {
         binding.tvListTitle.text = listData.title
         binding.tvListContent.text = listData.content
-        binding.tvListDate.text = listData.createdAt.toString()
+//        binding.tvListDate.text = listData.createdAt.toString()
         binding.root.setOnClickListener {
             Click(listData)
         }

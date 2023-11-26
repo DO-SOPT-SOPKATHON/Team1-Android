@@ -13,6 +13,7 @@ import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
 
 class WriteDialog(
     private val click: () -> Unit = { -> },
+    private val click2: () -> Unit = { -> }
 ) : DialogFragment() {
 
     private var _binding: DialogWriteBinding? = null
@@ -32,11 +33,11 @@ class WriteDialog(
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
 
         binding.btnWriteDialogHome.setOnSingleClickListener {
-            click
+            click()
         }
 
         binding.btnWriteDialogWorry.setOnSingleClickListener {
-            click
+            click2()
         }
 
         return binding?.root

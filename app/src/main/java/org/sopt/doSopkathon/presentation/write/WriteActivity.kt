@@ -12,6 +12,10 @@ import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.data.dto.request.WriteRequestDto
 import org.sopt.doSopkathon.data.mock.categoryList
 import org.sopt.doSopkathon.databinding.ActivityWriteBinding
+import org.sopt.doSopkathon.presentation.detail.DetailActivity
+import org.sopt.doSopkathon.presentation.list.ListActivity
+import org.sopt.doSopkathon.presentation.main.MainActivity
+import org.sopt.doSopkathon.presentation.main.MainDialog
 import org.sopt.doSopkathon.util.UiState
 import org.sopt.doSopkathon.util.ViewModelFactory
 import org.sopt.doSopkathon.util.base.BindingActivity
@@ -70,7 +74,17 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
         viewModel.postWriteBodyState.flowWithLifecycle(lifecycle).onEach { state ->
             when (state) {
                 is UiState.Success -> {
-                    // TODO: 다이얼로그 전환
+                    val dialog = WriteDialog(click = {
+                        val intent = Intent(this, MainActivity::class.java).apply {
+                        }
+                        startActivity(intent)
+                    }, click2 = {
+                        val intent = Intent(this, ListActivity::class.java).apply {
+                        }
+                        intent.putExtra("category",1)
+                        startActivity(intent)
+                    })
+                    dialog.show(supportFragmentManager, "MainDialog")
                 }
 
                 is UiState.Failure -> {
