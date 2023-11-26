@@ -1,6 +1,7 @@
-# 🫧서비스 명
+# 서비스 명
 ### DO WOR:RE
-# 🫧서비스 소개
+
+# 서비스 소개
 
 *각자의 마음속에는 수없이 많은 걱정들이 자리 잡고 있습니다.* <br>
 *하지만 시간이 지나고 돌이켜보면, <br>그 걱정들이 우리를 더 성숙하고 강인하게 만들었음을 깨닫게 됩니다.* <br>
@@ -19,27 +20,25 @@
 <br> 
 걱정 기록 서비스, DO WOR:RE
 
-# 🫧주요 기능
+# 주요 기능
 1. 걱정 작성하기
 2. 걱정 리뷰하기
 3. 과거 걱정에 대한 리뷰 작성하기
 4. 랜덤 걱정 띄우기
 
-# 🫧시연 영상
+# 시연 영상
+
+https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/cc402fea-6cc2-4db8-bddb-a26a395448b5
 
 
-https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/114990782/797bc25a-b3da-4bd4-931e-9d4de4041e39
-
-
-
-# 🫧팀원 역할 분담
+# 팀원 역할 분담
 |<img width=150 src="https://avatars.githubusercontent.com/u/97405341?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/114990782?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/113780698?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/93514333?v=4" />|
 |:----:|:----:|:----:|:----:|
 | [김상호](https://github.com/Marchbreeze) | [손명지](https://github.com/m6z1) | [엄현지](https://github.com/hyunjium) | [이삭](https://github.com/lsakee) |
 |걱정 작성 화면|메인 화면|걱정 목록 화면|걱정 상세 보기 화면|
 
 
-# 🫧컨벤션 규칙 & 브랜치 전략
+# 컨벤션 규칙 & 브랜치 전략
 ### Git Convention
 - **[FEAT]** : 새로운 기능 구현
 - **[MOD]** : 코드 수정 및 내부 파일 수정
@@ -76,7 +75,7 @@ https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/114990782/797bc25a-b3d
     - ex) Issue #11에 대해서 완료한 경우 : `[FEAT/#11] 로그인 뷰 / UI 구현`
     - merge 할 때 : `[MERGE] #11 -> develop`
 
-# 🫧폴더링
+# 폴더링
 
 ```
 ├── api
