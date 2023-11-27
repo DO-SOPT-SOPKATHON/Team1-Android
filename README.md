@@ -1,7 +1,11 @@
 # 서비스 명
+
 ### DO WOR:RE
 
 # 서비스 소개
+
+![DO WOR RE](https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/8b591d62-8dba-4747-b6c9-ed8182fa4097)
+
 
 *각자의 마음속에는 수없이 많은 걱정들이 자리 잡고 있습니다.* <br>
 *하지만 시간이 지나고 돌이켜보면, <br>그 걱정들이 우리를 더 성숙하고 강인하게 만들었음을 깨닫게 됩니다.* <br>
