@@ -1,6 +1,5 @@
 package org.sopt.doSopkathon.presentation.write
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -12,10 +11,9 @@ import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.data.dto.request.WriteRequestDto
 import org.sopt.doSopkathon.data.mock.categoryList
 import org.sopt.doSopkathon.databinding.ActivityWriteBinding
-import org.sopt.doSopkathon.presentation.detail.DetailActivity
+import org.sopt.doSopkathon.presentation.detail.DetailActivity.Companion.EXTRA_CATEGORY
 import org.sopt.doSopkathon.presentation.list.ListActivity
 import org.sopt.doSopkathon.presentation.main.MainActivity
-import org.sopt.doSopkathon.presentation.main.MainDialog
 import org.sopt.doSopkathon.util.UiState
 import org.sopt.doSopkathon.util.ViewModelFactory
 import org.sopt.doSopkathon.util.base.BindingActivity
@@ -43,9 +41,15 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
     }
 
     private fun initAdapter() {
-        _adapter = WriteAdapter { category, position ->
+        _adapter = WriteAdapter { selectedCategory, position ->
             // category ID 저장
-            category.isSelected = !category.isSelected
+            selectedCategory.isSelected = !selectedCategory.isSelected
+            for (category in categoryList.indices) {
+                if (category != position) {
+                    categoryList[category].isSelected = false
+                    adapter.notifyItemChanged(category)
+                }
+            }
             viewModel.categoryId = position + 1
             adapter.notifyItemChanged(position)
         }
@@ -75,14 +79,14 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
             when (state) {
                 is UiState.Success -> {
                     val dialog = WriteDialog(click = {
-                        val intent = Intent(this, MainActivity::class.java).apply {
+                        Intent(this, MainActivity::class.java).apply {
+                            startActivity(this)
                         }
-                        startActivity(intent)
                     }, click2 = {
-                        val intent = Intent(this, ListActivity::class.java).apply {
+                        Intent(this, ListActivity::class.java).apply {
+                            putExtra(EXTRA_CATEGORY, viewModel.categoryId)
+                            startActivity(this)
                         }
-                        intent.putExtra("category",1)
-                        startActivity(intent)
                     })
                     dialog.show(supportFragmentManager, "MainDialog")
                 }
@@ -102,12 +106,5 @@ class WriteActivity : BindingActivity<ActivityWriteBinding>(R.layout.activity_wr
     private fun setCurrentDate() {
         val dateFormat = SimpleDateFormat("yyyy.MM.dd", Locale.getDefault())
         binding.tvWriteDate.text = dateFormat.format(Calendar.getInstance().time)
-    }
-
-    private inline fun <reified T : Activity> navigateTo() {
-        Intent(this@WriteActivity, T::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(this)
-        }
     }
 }

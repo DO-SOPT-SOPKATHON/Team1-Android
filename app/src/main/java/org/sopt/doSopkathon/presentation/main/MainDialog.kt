@@ -20,19 +20,14 @@ class MainDialog(
     private val binding: DialogMainBinding
         get() = requireNotNull(_binding) { getString(R.string.binding_not_initialized_error_msg) }
 
-    override fun onStart() {
-        super.onStart()
-
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding = DialogMainBinding.inflate(inflater, container, false)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
         return binding.root
     }
 

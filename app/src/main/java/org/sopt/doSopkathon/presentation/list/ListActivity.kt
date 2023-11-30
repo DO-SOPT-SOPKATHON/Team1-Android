@@ -14,7 +14,6 @@ import org.sopt.doSopkathon.util.base.BaseResponse
 import org.sopt.doSopkathon.util.base.BindingActivity
 import retrofit2.Call
 import retrofit2.Response
-import java.time.LocalDate
 
 class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list) {
 

@@ -23,8 +23,10 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
     private fun initView() {
         val postId = intent.getIntExtra(EXTRA_POST_ID, 404)
         val random = intent.getStringExtra(EXTRA_RANDOM)
-        val category = intent.getLongExtra(EXTRA_CATEGORY, 1)
+        val category = intent.getLongExtra(EXTRA_CATEGORY, 0)
         when (category.toInt()) {
+            0 -> binding.tvCategoryTitle.text = ""
+
             1 -> binding.tvCategoryTitle.text = "학업"
 
             2 -> binding.tvCategoryTitle.text = "연애"

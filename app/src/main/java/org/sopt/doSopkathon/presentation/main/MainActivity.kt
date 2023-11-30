@@ -1,6 +1,5 @@
 package org.sopt.doSopkathon.presentation.main
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import org.sopt.doSopkathon.R
@@ -47,20 +46,17 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
 
     private fun clickListWorryBtn() {
         binding.btnMainWatchWorry.setOnSingleClickListener {
-            navigateTo<DetailActivity>()
+            Intent(this, DetailActivity::class.java).apply {
+                putExtra(EXTRA_CATEGORY, 0)
+                putExtra(EXTRA_RANDOM, 1)
+                putExtra(EXTRA_POST_ID, 1)
+                startActivity(this)
+            }
         }
     }
 
     private fun clickWriteWorryBtn() {
-        binding.fabMainWriteWorry.setOnSingleClickListener {
-            navigateTo<WriteActivity>()
-        }
-    }
-
-    private inline fun <reified T : Activity> navigateTo() {
-        Intent(this@MainActivity, T::class.java).apply {
-            putExtra(EXTRA_RANDOM, 1)
-            putExtra(EXTRA_POST_ID, 1)
+        Intent(this, WriteActivity::class.java).apply {
             startActivity(this)
         }
     }
