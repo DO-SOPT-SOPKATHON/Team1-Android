@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.databinding.DialogMainBinding
 import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
 
@@ -17,28 +18,41 @@ class MainDialog(
 
     private var _binding: DialogMainBinding? = null
     private val binding: DialogMainBinding
-        get() = requireNotNull(_binding) { "바인딩 객체가 생성되지 않음" }
+        get() = requireNotNull(_binding) { getString(R.string.binding_not_initialized_error_msg) }
+
+    override fun onStart() {
+        super.onStart()
+
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         _binding = DialogMainBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        // 다이얼로그 뜰 때 배경색 dialog?.window?.setBackgroundDrawableResource(배경색)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        initCloseBtnListener()
+        initMainBtnListener()
+    }
+
+    private fun initCloseBtnListener() {
         binding.ivMainDialogClose.setOnSingleClickListener {
             dismiss()
         }
+    }
 
+    private fun initMainBtnListener() {
         binding.btnMainDialogShowWorry.setOnSingleClickListener {
             click()
         }
-
-        return binding?.root
     }
 
     override fun onDestroy() {

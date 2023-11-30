@@ -1,9 +1,6 @@
 package org.sopt.doSopkathon.presentation.detail
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import org.sopt.doSopkathon.R
@@ -24,14 +21,18 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
 
 
     private fun initView() {
-        val postId = intent.getIntExtra("dataPostId", 404)
-        val random = intent.getStringExtra("random")
-        val category = intent.getLongExtra("category",1)
-        when(category.toInt()){
-            1->{binding.tvCategoryTitle.text = "학업"}
-            2->{binding.tvCategoryTitle.text = "연애"}
-            3->{binding.tvCategoryTitle.text = "프로젝트"}
-            else->{binding.tvCategoryTitle.text = "취업"}
+        val postId = intent.getIntExtra(EXTRA_POST_ID, 404)
+        val random = intent.getStringExtra(EXTRA_RANDOM)
+        val category = intent.getLongExtra(EXTRA_CATEGORY, 1)
+        when (category.toInt()) {
+            1 -> binding.tvCategoryTitle.text = "학업"
+
+            2 -> binding.tvCategoryTitle.text = "연애"
+
+            3 -> binding.tvCategoryTitle.text = "프로젝트"
+
+            else -> binding.tvCategoryTitle.text = "취업"
+
         }
         if (postId != 404) viewModel.getOnePost(postId)
         if (random != null) viewModel.getRandomPost()
@@ -41,7 +42,6 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
     }
 
 
-
     private fun initAdapter() {
         detailAdapter = DetailAdapter()
         binding.rvComment.adapter = detailAdapter
@@ -49,11 +49,11 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
 
     private fun observePostData() {
         viewModel.postViewData.observe(this) {
-            binding.tvTitle.text=it.title
-            binding.tvWriteDate1.text=it.createdAt
-            binding.tvWriteDate2.text=it.createdAt
-            binding.layoutDetail01.text=it.content
-            binding.layoutDetail02.text=it.content
+            binding.tvTitle.text = it.title
+            binding.tvWriteDate1.text = it.createdAt
+            binding.tvWriteDate2.text = it.createdAt
+            binding.layoutDetail01.text = it.content
+            binding.layoutDetail02.text = it.content
             detailAdapter.submitList(it.reviewList)
         }
     }
@@ -87,10 +87,9 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
         }
     }
 
-    private inline fun <reified T : Activity> navigateTo() {
-        Intent(this@DetailActivity, T::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(this)
-        }
+    companion object {
+        const val EXTRA_POST_ID = "dataPostId"
+        const val EXTRA_RANDOM = "random"
+        const val EXTRA_CATEGORY = "category"
     }
 }
