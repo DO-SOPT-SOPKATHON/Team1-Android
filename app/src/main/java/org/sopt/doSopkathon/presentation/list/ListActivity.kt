@@ -1,17 +1,17 @@
 package org.sopt.doSopkathon.presentation.list
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.api.ServicePool
 import org.sopt.doSopkathon.data.dto.response.ListResponseDto
 import org.sopt.doSopkathon.databinding.ActivityListBinding
 import org.sopt.doSopkathon.presentation.detail.DetailActivity
+import org.sopt.doSopkathon.presentation.detail.DetailActivity.Companion.EXTRA_CATEGORY
+import org.sopt.doSopkathon.presentation.detail.DetailActivity.Companion.EXTRA_POST_ID
 import org.sopt.doSopkathon.util.base.BaseResponse
 import org.sopt.doSopkathon.util.base.BindingActivity
+import org.sopt.doSopkathon.util.extension.toast
 import retrofit2.Call
 import retrofit2.Response
 
@@ -25,46 +25,33 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initAdapter()
-        val categoryId = intent.getLongExtra("category", 1)
-        Log.d("category", "$categoryId")
-        when (categoryId.toInt()) {
-            1 -> {
-                binding.tvListCategoryName.text = "학업"
-
-            }
-
-            2 -> {
-                binding.tvListCategoryName.text = "연애"
-            }
-
-            3 -> {
-                binding.tvListCategoryName.text = "프로젝트"
-            }
-
-            else -> {
-                binding.tvListCategoryName.text = "취업"
-
-            }
-        }
-        getListInfo(categoryId)
+        setCategory()
 
     }
 
-    private inline fun <reified T : Activity> navigateTo() {
-        Intent(this@ListActivity, T::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(this)
+    private fun setCategory() {
+        val categoryId = intent.getLongExtra(EXTRA_CATEGORY, 0)
+        when (categoryId.toInt()) {
+            1 -> binding.tvListCategoryName.text = "학업"
+
+            2 -> binding.tvListCategoryName.text = "연애"
+
+            3 -> binding.tvListCategoryName.text = "프로젝트"
+
+            4 -> binding.tvListCategoryName.text = "취업"
+
+            else -> binding.tvListCategoryName.text = ""
         }
+        getListInfo(categoryId)
     }
 
     private fun initAdapter() {
         _adapter = ListAdapter(this, Click = {
-            val intent = Intent(this, DetailActivity::class.java).apply {
-                putExtra("dataPostId", it.postId)
-                putExtra("category", it.categoryId)
-                Log.d("categort", "${it.categoryId}")
+            Intent(this, DetailActivity::class.java).apply {
+                putExtra(EXTRA_POST_ID, it.postId)
+                putExtra(EXTRA_CATEGORY, it.categoryId)
+                startActivity(this)
             }
-            startActivity(intent)
         })
         binding.rvListList.adapter = adapter
     }
@@ -76,9 +63,7 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
                     call: Call<BaseResponse<List<ListResponseDto>>>,
                     t: Throwable
                 ) {
-
-                    Log.d("test", "$t")
-//                    Toast.makeText(this@ListActivity, "서버 에러 발생", Toast.LENGTH_SHORT).show()
+                    toast("서버 에러 발생")
                 }
 
                 override fun onResponse(
@@ -86,12 +71,10 @@ class ListActivity : BindingActivity<ActivityListBinding>(R.layout.activity_list
                     response: Response<BaseResponse<List<ListResponseDto>>>
                 ) {
                     if (response.isSuccessful) {
-                        val data = response.body()!!
-                        adapter.setListList(data.data!!)
-                        Log.d("test", "$data")
+                        val responseData = response.body()?.data ?: return
+                        adapter.setListList(responseData)
                     } else {
-                        Log.d("test", "${response.errorBody()}")
-                        Toast.makeText(this@ListActivity, "서버 통신 실패", Toast.LENGTH_SHORT).show()
+                        toast("서버 통신 실패")
                     }
                 }
             })

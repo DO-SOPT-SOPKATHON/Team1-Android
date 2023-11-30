@@ -12,6 +12,7 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
 
     private lateinit var detailAdapter: DetailAdapter
     private val viewModel: DetailViewModel by viewModels { ViewModelFactory(this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
