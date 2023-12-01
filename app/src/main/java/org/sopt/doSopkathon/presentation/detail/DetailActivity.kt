@@ -7,6 +7,8 @@ import org.sopt.doSopkathon.R
 import org.sopt.doSopkathon.databinding.ActivityDetailBinding
 import org.sopt.doSopkathon.util.ViewModelFactory
 import org.sopt.doSopkathon.util.base.NoHideBindingActivity
+import org.sopt.doSopkathon.util.extension.hideKeyboard
+import org.sopt.doSopkathon.util.extension.setOnSingleClickListener
 
 class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.activity_detail) {
 
@@ -19,7 +21,6 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
         initAdapter()
         spandableTextLayout()
     }
-
 
     private fun initView() {
         val postId = intent.getIntExtra(EXTRA_POST_ID, 404)
@@ -44,7 +45,6 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
         sendReview(postId)
     }
 
-
     private fun initAdapter() {
         detailAdapter = DetailAdapter()
         binding.rvComment.adapter = detailAdapter
@@ -61,21 +61,14 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
         }
     }
 
-    private fun observeReviewResult(postId: Int) {
-        viewModel.addReviewResult.observe(this) {
-            if (it) viewModel.getOnePost(postId)
-        }
-    }
-
     private fun spandableTextLayout() {
-        binding.ivAnimate.setOnClickListener {
+        binding.ivAnimate.setOnSingleClickListener {
             val isDetail01Visible = binding.layoutDetail01.visibility == View.VISIBLE
             with(binding) {
                 layoutDetail01.visibility = if (isDetail01Visible) View.GONE else View.VISIBLE
                 layoutDetail02.visibility = if (isDetail01Visible) View.VISIBLE else View.GONE
                 tvWriteDate1.visibility = if (isDetail01Visible) View.GONE else View.VISIBLE
                 tvWriteDate2.visibility = if (isDetail01Visible) View.VISIBLE else View.GONE
-
                 ivAnimate.animate().apply {
                     duration = 300
                     rotation(if (isDetail01Visible) 0f else 180f)
@@ -85,8 +78,20 @@ class DetailActivity : NoHideBindingActivity<ActivityDetailBinding>(R.layout.act
     }
 
     private fun sendReview(postId: Int) {
-        binding.ivChat.setOnClickListener {
+        binding.ivChat.setOnSingleClickListener {
             viewModel.addReview(postId, binding.etvDetailSearch.text.toString())
+            hideKeyboard(binding.root)
+            binding.etvDetailSearch.setText("")
+        }
+    }
+
+    private fun observeReviewResult(postId: Int) {
+        viewModel.addReviewResult.observe(this) { result ->
+            if (result) {
+                viewModel.getOnePost(postId)
+                detailAdapter.notifyDataSetChanged()
+                binding.rvComment.smoothScrollToPosition(detailAdapter.itemCount - 1)
+            }
         }
     }
 

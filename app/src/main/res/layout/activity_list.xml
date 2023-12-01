@@ -49,7 +49,7 @@
             android:id="@+id/tv_list_category_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="43dp"
+            app:layout_constraintEnd_toStartOf="@id/iv_list_category_box"
             android:layout_marginBottom="8dp"
             android:maxLength="5"
             android:text="@string/list_category_name"
