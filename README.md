@@ -32,7 +32,7 @@
 
 # 시연 영상
 
-https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/cc402fea-6cc2-4db8-bddb-a26a395448b5
+https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/64b2a86f-bfed-4283-acae-ee365bced368
 
 
 # 팀원 역할 분담
