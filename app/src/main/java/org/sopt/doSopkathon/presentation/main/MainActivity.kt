@@ -56,8 +56,10 @@ class MainActivity : BindingActivity<ActivityMainBinding>(R.layout.activity_main
     }
 
     private fun clickWriteWorryBtn() {
-        Intent(this, WriteActivity::class.java).apply {
-            startActivity(this)
+        binding.fabMainWriteWorry.setOnSingleClickListener {
+            Intent(this, WriteActivity::class.java).apply {
+                startActivity(this)
+            }
         }
     }
 }
