@@ -74,5 +74,10 @@
         <item name="lineHeight">18sp</item>
     </style>
 
+    <style name="TextAppearance.Pretendard.Caption2">
+        <item name="fontFamily">@font/font_pretendard_regular</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
 
 </resources>
