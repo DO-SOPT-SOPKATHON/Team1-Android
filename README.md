@@ -1,8 +1,6 @@
-# 서비스 명
+# DO WOR:RE
 
-### DO WOR:RE
-
-# 서비스 소개
+## 서비스 소개
 
 ![DO WOR RE](https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/8b591d62-8dba-4747-b6c9-ed8182fa4097)
 
@@ -24,25 +22,40 @@
 <br> 
 걱정 기록 서비스, DO WOR:RE
 
-# 주요 기능
+<br>
+
+## 주요 기능
 1. 걱정 작성하기
 2. 걱정 리뷰하기
 3. 과거 걱정에 대한 리뷰 작성하기
 4. 랜덤 걱정 띄우기
 
-# 시연 영상
+<br>
+
+## SCREENSHOTS
+|       뷰       |                                                              1                                                              |                                                              2                                                              | 
+|:-------------:|:---------------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------:|
+| 메인 <br> <br> 랜덤 걱정 마주하기 | <img width="250px" src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/6f45c6db-0901-41a8-9818-554cd9d118e3"/> | <img width="250px" src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/c67d4c46-6ad5-4020-8b21-4560cde8f709"/> |                                                                                                                             |                                                                                                                             |
+| 걱정 작성하기 | <img width="250px" src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/418e7644-cc82-4a5f-9274-813925f16980"/> | <img width="250px" src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/aa64aae6-04ec-40d0-b2b4-6b34a2ccc238"/> | 
+|   걱정 살펴보기 <br> <br> 걱정 리뷰하기   | <img width="250px" src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/c45f4d97-8479-4825-a24f-77d286883193"/> | <img width="250px" src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/64e69380-06eb-4b73-8800-97ae0f06c977"/> | 
+
+<br>
+
+## 시연 영상
 
 https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/64b2a86f-bfed-4283-acae-ee365bced368
 
+<br>
 
-# 팀원 역할 분담
+## 팀원 역할 분담
 |<img width=150 src="https://avatars.githubusercontent.com/u/97405341?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/114990782?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/113780698?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/93514333?v=4" />|
 |:----:|:----:|:----:|:----:|
-| [김상호](https://github.com/Marchbreeze) | [손명지](https://github.com/m6z1) | [엄현지](https://github.com/hyunjium) | [이삭](https://github.com/lsakee) |
-|걱정 작성 화면|메인 화면|걱정 목록 화면|걱정 상세 보기 화면|
+| [김상호](https://github.com/Marchbreeze) | [이삭](https://github.com/lsakee) | [손명지](https://github.com/m6z1) | [엄현지](https://github.com/hyunjium) |
+|걱정 작성 화면|걱정 상세 보기 화면|메인 화면|걱정 목록 화면|
 
+<br>
 
-# 컨벤션 규칙 & 브랜치 전략
+## 컨벤션 규칙 & 브랜치 전략
 ### Git Convention
 - **[FEAT]** : 새로운 기능 구현
 - **[MOD]** : 코드 수정 및 내부 파일 수정
@@ -79,7 +92,9 @@ https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/64b2a86f-bfed
     - ex) Issue #11에 대해서 완료한 경우 : `[FEAT/#11] 로그인 뷰 / UI 구현`
     - merge 할 때 : `[MERGE] #11 -> develop`
 
-# 폴더링
+<br>
+
+## 폴더링
 
 ```
 ├── api
@@ -104,8 +119,12 @@ https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/64b2a86f-bfed
 │     └── model
 ```
 
-# 🫧Before 안붕이 사진
+<br>
+
+## 🫧Before 안붕이 사진
 <img width=500 src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/114990782/e5f31ebb-e364-4084-a5f4-3f87d22e6dab">
 
-# 🫧After 안붕이 사진
+<br>
+
+## 🫧After 안붕이 사진
 <img width=500 src="https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/113780698/44b6a425-5310-4ca9-988f-a37a68f054c0">
