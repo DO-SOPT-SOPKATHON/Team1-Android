@@ -48,7 +48,7 @@ https://github.com/DO-SOPT-SOPKATHON/Team1-Android/assets/97405341/64b2a86f-bfed
 <br>
 
 ## 팀원 역할 분담
-|<img width=150 src="https://avatars.githubusercontent.com/u/97405341?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/114990782?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/113780698?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/93514333?v=4" />|
+|<img width=150 src="https://avatars.githubusercontent.com/u/97405341?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/93514333?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/114990782?v=4" />|<img width=150 src="https://avatars.githubusercontent.com/u/113780698?v=4" />|
 |:----:|:----:|:----:|:----:|
 | [김상호](https://github.com/Marchbreeze) | [이삭](https://github.com/lsakee) | [손명지](https://github.com/m6z1) | [엄현지](https://github.com/hyunjium) |
 |걱정 작성 화면|걱정 상세 보기 화면|메인 화면|걱정 목록 화면|
